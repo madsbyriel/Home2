@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <header>
+        {% if not request.user.is_active %}
+            <a href="{% url 'esp_wifi:login' %}">Log in</a>
+        {% else %}
+            <a href="{% url 'esp_wifi:logout' %}">Log out</a>
+        {% endif %}
+    </header>
+    {% block body %}
+    {% endblock %}
+</body>
+</html>

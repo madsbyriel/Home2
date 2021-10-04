@@ -1,0 +1,19 @@
+{% extends 'esp_wifi/base.html' %}
+{% block body %}
+    {% if request.user.is_active %}
+        <h1>{{ request.user.username }}</h1>
+        {% if form %}
+            <form action="" method="post">{% csrf_token %}
+                {{ form }}
+                <button type="submit" value="Submit!">Submit!</button>
+            </form>
+        {% endif %}
+        {% if esps %}
+            <ul>
+                {% for esp in esps %}
+                    <li><a href="{% url 'esp_wifi:esp' esp.pk %}">{{ esp.name }}</a></li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endif %}
+{% endblock %}

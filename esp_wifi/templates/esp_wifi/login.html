@@ -1,0 +1,7 @@
+{% extends 'esp_wifi/base.html' %}
+{% block body %}
+    <form action="" method="post">{% csrf_token %}
+        {{ form }}
+        <button type="submit" value="Submit!">Submit!</button>
+    </form>
+{% endblock %}
