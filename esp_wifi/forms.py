@@ -1,10 +1,12 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, CharField, PasswordInput, TextInput
 from .models import Esp, Command
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
 
 
 class Esp_form(ModelForm):
+    name = CharField(widget=TextInput(attrs={'class': 'form-control'}))
+
     class Meta:
         model = Esp
         fields = ['name']
@@ -14,6 +16,8 @@ class Esp_form(ModelForm):
 
 
 class Command_form(ModelForm):
+    name = CharField(widget=TextInput(attrs={'class': 'form-control'}))
+
     class Meta:
         model = Command
         fields = ['name']
@@ -21,7 +25,11 @@ class Command_form(ModelForm):
             'name': _('Command')
         }
 
+
 class Login_form(ModelForm):
+    password = CharField(widget=PasswordInput(attrs={'class': 'form-control'}))
+    username = CharField(widget=TextInput(attrs={'class': 'form-control'}))
+
     class Meta:
         model = User
         fields = ['username', 'password']
