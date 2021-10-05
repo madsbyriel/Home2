@@ -5,13 +5,16 @@
         {% if form %}
             <form action="" method="post">{% csrf_token %}
                 {{ form }}
-                <button class="btn btn-success" type="submit" value="Submit!">Submit!</button>
+                <div class="py-3">
+                    <button class="btn btn-success" type="submit" value="Submit!">Submit!</button>
+                </div>
             </form>
         {% endif %}
         {% if esps %}
-            <ul>
+            <h4 class="pt-4">ESP's:</h4>
+            <ul class="list-group">
                 {% for esp in esps %}
-                    <li><a href="{% url 'esp_wifi:esp' esp.pk %}">{{ esp.name }}</a></li>
+                    <a style="font-size: 110%" class="list-group-item list-group-item-action" href="{% url 'esp_wifi:esp' esp.pk %}">{{ esp.name }}</a>
                 {% endfor %}
             </ul>
         {% endif %}

@@ -33,7 +33,7 @@ def esp_view(request, pk):
                 command.save()
                 form = Command_form(None)
         context['form'] = form
-        context['commands'] = request.user.esp_set.get(pk=pk).command_set.all()
+        context['commands'] = request.user.esp_set.get(pk=pk).command_set.all()[::-1]
         return render(request, 'esp_wifi/esp.html', context)
     else:
         return HttpResponseRedirect("/wrong_user_tries_sumtingfuckied")

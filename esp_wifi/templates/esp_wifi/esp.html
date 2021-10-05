@@ -3,12 +3,18 @@
     <h3>{{ esp.name }}: {{ esp.pk }}</h3>
     <form action="" method="post">{% csrf_token %}
         {{ form }}
-        <button class="btn btn-success" type="submit" value="Submit!">Submit!</button>
+        <div class="py-3">
+            <button class="btn btn-success" type="submit" value="Submit!">Submit!</button>
+        </div>
     </form>
     {% if commands %}
-        <ul>
+        <ul class="list-group">
         {% for command in commands %}
-            <li>{{ command.name }}</li>
+            {% if forloop.counter == 1 %}
+                <li class="list-group-item active">{{ command.name }}</li>
+            {% else %}
+                <li class="list-group-item">{{ command.name }}</li>
+            {% endif %}
         {% endfor %}
         </ul>
     {% endif %}
