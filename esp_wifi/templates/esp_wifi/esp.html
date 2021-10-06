@@ -10,10 +10,10 @@
     {% if commands %}
         <ul class="list-group">
         {% for command in commands %}
-            {% if forloop.counter == 1 %}
-                <li class="list-group-item active">{{ command.name }}</li>
+            {% if command == the_command %}
+                <li class="list-group-item list-group-item-action active">{{ command.name }}</li>
             {% else %}
-                <li class="list-group-item">{{ command.name }}</li>
+                <a href="{% url 'esp_wifi:select_command' command.pk %}" class="list-group-item list-group-item-action">{{ command.name }}</a>
             {% endif %}
         {% endfor %}
         </ul>

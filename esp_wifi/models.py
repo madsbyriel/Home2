@@ -6,6 +6,7 @@ from django.contrib.auth.models import User
 class Esp(models.Model):
     name = models.CharField(max_length=100)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    activated = models.IntegerField(blank=True, default=0)
 
 
 class Command(models.Model):

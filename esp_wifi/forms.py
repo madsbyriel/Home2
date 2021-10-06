@@ -1,4 +1,4 @@
-from django.forms import ModelForm, CharField, PasswordInput, TextInput
+from django.forms import ModelForm, CharField, PasswordInput, TextInput, Form
 from .models import Esp, Command
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth.models import User
@@ -33,3 +33,9 @@ class Login_form(ModelForm):
     class Meta:
         model = User
         fields = ['username', 'password']
+
+
+class Signup_form(Form):
+    username = CharField(widget=TextInput(attrs={'class': 'form-control'}))
+    password1 = CharField(widget=PasswordInput(attrs={'class': 'form-control'}))
+    password2 = CharField(widget=PasswordInput(attrs={'class': 'form-control'}))

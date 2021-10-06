@@ -23,5 +23,7 @@ urlpatterns = [
     path('esp<int:pk>/', views.esp_view, name='esp'),
     path('login/', views.sign_in, name='login'),
     path('logout/', views.sign_out, name='logout'),
-    path('read<int:pk>/', views.read, name='read')
+    path('read<int:pk>/', views.read, name='read'),
+    path('select_command<int:pk>/', views.select_command, name="select_command"),
+    path('signup/', views.signup, name="signup"),
 ]
